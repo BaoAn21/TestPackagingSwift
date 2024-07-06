@@ -19,10 +19,7 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "ChessBoardSwift",
-            path: "Sources",
-            resources: [
-                .process("Assets")
-            ]
+            path: "Sources"
         ),
         .testTarget(
             name: "ChessBoardSwiftTests",
