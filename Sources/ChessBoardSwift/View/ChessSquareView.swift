@@ -32,7 +32,7 @@ public struct ChessSquareView: View {
         Rectangle().stroke()
             .overlay {
                 if let piece = piece {
-                    Image(piece.image)
+                    Image(uiImage: UIImage(named: piece.image, in: .module, with: nil)!)
                         .resizable()
                         .scaledToFit()
                         .zIndex(1)
