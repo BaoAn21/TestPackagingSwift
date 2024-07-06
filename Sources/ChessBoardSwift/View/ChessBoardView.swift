@@ -15,6 +15,10 @@ public struct ChessBoardView: View {
         chessBoardView
     }
     
+    public init(chessBoardController: ChessBoardController) {
+        self.chessBoardController = chessBoardController
+    }
+    
     @Namespace private var animatePiece
     
     var chessBoardView: some View {
