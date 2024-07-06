@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct ChessBoardView: View {
-    @ObservedObject var chessBoardController: ChessBoardController
+    @ObservedObject var chessBoardController: ChessBoardController = ChessBoardController()
     
     var body: some View {
         chessBoardView
@@ -22,38 +22,18 @@ struct ChessBoardView: View {
             ForEach(0..<8) { row in
                 GridRow {
                     ForEach((row*8)..<(row*8+8), id: \.self) { i in
-                        var squareColor: Color {
-                            if i == chessBoardController.recentMoveFromIndex {
-                                .orange
-                            } else if i == chessBoardController.recentMoveToIndex {
-                                .yellow
-                            } else {
-                                .white
+                        ChessSquareView(
+                            index: i,
+                            piece: chessBoardController.pieces[i],
+                            isRecentMoveFrom: i == chessBoardController.recentMoveFromIndex,
+                            isRecentMoveTo: i == chessBoardController.recentMoveToIndex,
+                            isPicked: chessBoardController.pieces[i]?.isPicked ?? false,
+                            onTap: {
+                                withAnimation(.easeInOut.speed(2)) {
+                                    chessBoardController.choose(index: i)
+                                }
                             }
-                        }
-                        let piece = chessBoardController.pieces[i]
-                            Rectangle().stroke()
-                                .overlay {
-                                    if piece == nil {
-                                        EmptyView()
-                                    } else {
-                                        Image(piece!.image)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .zIndex(1)
-                                            .matchedGeometryEffect(id: piece!.id, in: animatePiece)
-                                            .background(piece!.isPicked ? Color.brown : nil)
-                                            
-                                    }
-                                }
-                                .background(squareColor)
-                                .aspectRatio(1.0, contentMode: .fit)
-                                .onTapGesture {
-                                    withAnimation(.easeInOut.speed(2)) {
-                                        chessBoardController.choose(index: i)
-                                    }
-                                    
-                                }
+                        )
                     }
                 }
             }
