@@ -8,10 +8,10 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-struct ChessBoardView: View {
+public struct ChessBoardView: View {
     @ObservedObject var chessBoardController: ChessBoardController = ChessBoardController()
     
-    var body: some View {
+    public var body: some View {
         chessBoardView
     }
     

@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-struct ChessSquareView: View {
+public struct ChessSquareView: View {
     let index: Int
     let piece: Piece?
     let isRecentMoveFrom: Bool
@@ -28,7 +28,7 @@ struct ChessSquareView: View {
     }
     
     @available(iOS 15.0, *)
-    var body: some View {
+    public var body: some View {
         Rectangle().stroke()
             .overlay {
                 if let piece = piece {

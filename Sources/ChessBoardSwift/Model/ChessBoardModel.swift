@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Piece: Identifiable {
-    let id: UUID
+public struct Piece: Identifiable {
+    public let id: UUID
     let color: PieceColor
     let type: PieceType
     var isPicked = false
@@ -89,12 +89,12 @@ struct Piece: Identifiable {
     }
 }
 
-enum PieceColor {
+public enum PieceColor {
     case white
     case black
 }
 
-enum PieceType {
+public enum PieceType {
     case pawn
     case rook
     case knight

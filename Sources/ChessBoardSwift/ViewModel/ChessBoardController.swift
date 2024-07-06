@@ -8,7 +8,7 @@
 import Foundation
 
 @available(iOS 13.0, *)
-class ChessBoardController: ObservableObject {
+public class ChessBoardController: ObservableObject {
     
     @Published private(set) var pieces = [Piece?]()
     @Published private(set) var recentMoveFromIndex: Int = -1
