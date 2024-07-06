@@ -14,7 +14,7 @@ public class ChessBoardController: ObservableObject {
     @Published private(set) var recentMoveFromIndex: Int = -1
     @Published private(set) var recentMoveToIndex: Int = -1
     
-    init(fen: String = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1") {
+    public init(fen: String = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1") {
         placePieceByFen(fen: fen)
     }
     
