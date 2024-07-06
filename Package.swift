@@ -21,7 +21,7 @@ let package = Package(
             name: "ChessBoardSwift",
             path: "Sources",
             resources: [
-                .process("Resources/Assets.xcassets")
+                .process("Resources/Media.xcassets")
             ]
         ),
         .testTarget(
